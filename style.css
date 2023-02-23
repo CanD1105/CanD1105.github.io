@@ -1,66 +1,89 @@
-header {
-    position: fixed;
-    z-index: 999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 20px 40px;
-    background: #eee;
-    box-sizing: border-box;
-    transition: padding .3s;
+@charset "utf-8";
+
+/*========= スクロール途中からヘッダーの高さが小さくなるためのCSS ===============*/
+#header{
+    /*はじめの高さを設定*/
+  height: 170px;
+  width:100%;
+   /*以下はレイアウトのためのCSS*/
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background:#333;
+  color:#fff;
+  text-align: center;
+  padding: 20px;
+}
+
+/*HeightMinというクラス名がついたら高さを小さく、上部固定に*/
+#header.HeightMin{
+  position: fixed;
+    z-index: 999;/*最前面へ*/
+  height:70px;
+  animation: DownAnime 0.5s forwards;
+}
+
+@keyframes DownAnime{
+  from {
+    opacity: 0;
+  transform: translateY(-170px);
   }
-  header .inner {
-    position: relative;
-    display: flex;
-    align-items: center;
-    height: 100%;
+  to {
+    opacity: 1;
+  transform: translateY(0);
   }
-  .logo {
-    position: relative;
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-  }
-  
-  
-  /* header-navi */
-  
-  header .navi {
-    margin: 0 0 0 auto;
-    padding: 0;
-    font-size: 14px;
-    font-weight: bold;
-    display: flex;
-    list-style: none;
-  }
-  header .navi li {
-    margin: 5px 0 5px 40px;
-  }
-  header .navi li:first-child {
-    margin-left: 0;
-  }
-  header .navi li a {
-    display: block;
-    box-sizing: border-box;
-    text-decoration: none;
-    color: #333;
-  }
-  header .navi li a:hover {
-    text-decoration: underline;
-  }
-  
-  /* add css  */
-  
-  #header.scroll {
-    padding: 10px 40px;
-  }
-  
-  /* layout */
-  
-  body{
-    margin: 0;
-    padding: 0;
-  }
-  #main{
-    height: 3000px;
-  }
+}
+
+
+/*========= レイアウトのためのCSS ===============*/
+
+h1{
+  font-size:1.2rem;
+}
+
+h2{
+  font-size:1.2rem;
+  text-align: center;
+  margin: 0 0 30px 0;
+}
+
+p{
+  margin-top:20px;  
+}
+
+small{
+  background:#333;
+  color:#fff;
+  display: block;
+  text-align: center;
+  padding:20px;
+}
+
+
+nav ul{
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li a{
+  display: block;
+  text-decoration: none;
+  color: #666;
+  padding:10px;
+  transition:all 0.3s;
+}
+
+nav ul li.current a,
+nav ul li a:hover{
+  color:#fff; 
+}
+
+
+section{
+  padding:30px;
+}
+
+section:nth-child(2n){
+  background:#f3f3f3; 
+}
