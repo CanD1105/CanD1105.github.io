@@ -1,0 +1,7 @@
+header {
+    background-color: #aaa;
+}
+li {
+    display: inline-block;
+    list-style: none;
+}
